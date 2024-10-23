@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Oferta</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .offer-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .offer-table th, .offer-table td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        .offer-table th {
+            background-color: #f2f2f2;
+        }
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        .thank-you-message {
+            display: none;
+            color: green;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Confirmación de Oferta</h2>
+
+<form id="offerForm" action="mailto:alejandrofranciscocernavalle@gmail.com" method="post" enctype="text/plain">
+    <table class="offer-table">
+        <tr>
+            <th>Seleccionar la oferta</th>
+            <td>
+                <select class="form-input" name="oferta">
+                    <option value="Diseño de un edificio de tres plantas de 24 x 40 m de construcción">Diseño de un edificio de tres plantas de 24 x 40 m de construcción</option>
+                    <option value="Levantamiento topográfico">Levantamiento topográfico</option>
+                    <option value="Cancha de fútbol">Cancha de fútbol</option>
+                    <option value="Valúo de vivienda">Valúo de vivienda</option>
+                    <option value="Escrituración de terreno">Escrituración de terreno</option>
+                    <option value="Supervisión de construcción">Supervisión de construcción</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>Nombre del Cliente</th>
+            <td><input type="text" class="form-input" name="nombre_cliente" placeholder="Ingrese su nombre aquí" required></td>
+        </tr>
+        <tr>
+            <th>Consultas</th>
+            <td><textarea class="form-input" name="consultas" placeholder="Escriba aquí sus dudas o comentarios" rows="4"></textarea></td>
+        </tr>
+        <tr>
+            <th>Firma o Confirmación</th>
+            <td><input type="text" class="form-input" name="firma_confirmacion" placeholder="Firma o Confirmación de Aceptación" required></td>
+        </tr>
+        <tr>
+            <th>Fecha de Aceptación</th>
+            <td><input type="date" class="form-input" name="fecha_aceptacion" required></td>
+        </tr>
+    </table>
+
+    <button type="submit" class="submit-btn">Enviar</button>
+</form>
+
+<div class="thank-you-message" id="thankYouMessage">
+    Gracias por tu confianza.
+</div>
+
+<script>
+    document.getElementById('offerForm').addEventListener('submit', function(event) {
+        event.preventDefault();  // Evita que el formulario se envíe de inmediato
+
+        // Muestra el mensaje de agradecimiento
+        document.getElementById('thankYouMessage').style.display = 'block';
+
+        // Aquí podrías también agregar lógica para enviar el formulario después de mostrar el mensaje, si lo deseas:
+        // event.target.submit();
+    });
+</script>
+
+</body>
+</html>
